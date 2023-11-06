@@ -1,10 +1,10 @@
-# Analysis of BiBi-Windows Wiper Targeting Israeli Organizations
+# Technical Analysis of BiBi-Windows Wiper Targeting Israeli Organizations
 
 On 30th October, Security Joes Incident Response team [discovered](https://www.securityjoes.com/post/bibi-linux-a-new-wiper-dropped-by-pro-hamas-hacktivist-group) a new Linux Wiper named **"BiBi-Linux"** Wiper been deployed by Pro-Hamas Hacktivist group to destroy their infrastructure. And then on November 1 2023, ESET Research [tweeted](https://twitter.com/ESETresearch/status/1719437301900595444) about a Windows version of the Bibi Wiper deployed by BiBiGun, a Hamas-backed hacktivist group that initially debuted during the 2023 Israel-Hamas conflict.
 
 In this post, we will look at the Windows version of the BiBi Wiper known as the **"BiBi-Windows Wiper"**
 
-## Analysis
+## Technical Analysis
 
 Upon execution, the BiBi-Windows Wiper checks to see if any arguments have been passed to the BiBi Wiper. The arguments here is the directory to be destroyed - `bibi.exe <directory_to_destroyed>`. If no argument is provided, it performs the following routine for fetching the target drives
 
