@@ -27,4 +27,28 @@ Further it prints the target directories on the console and retrieves the Number
 
 ![2](https://github.com/knight0x07/BiBi-Windows-Wiper-Analysis/assets/60843949/4828d72d-058c-4e5e-8602-a51077c45a4f)
 
+Further it creates a new thread which reads the commands stored in reverse, & then creates a new process using `CreateProcessA` to execute those commands. Following are the commands
+
+- cmd.exe /c bcdedit /set {default} recoveryenabled no - Disables Windows Recovery Environment 
+- cmd.exe / c bcdedit / set {default} bootstatuspolicy ignoreallfailures - Force the system to boot normally rather than into the Windows Recovery Environment
+- cmd.exe /c wmic shadowcopy delete - Delete Volume Shadow Copies using WMIC
+- cmd.exe /c  vssadmin delete   shadows /quIet /all - Delete Volume Shadow Copies using VssAdmin
+
+![3](https://github.com/knight0x07/BiBi-Windows-Wiper-Analysis/assets/60843949/c345a18d-df95-4515-9a0d-db075e7c3080)
+
+Furthermore it creates another thread which executes of the Main Wiper routines. The Wiper routines perform the following actions
+
+- The Arguments to the Wiper Function are:
+	- Arg1 - Path of the Directory to be destroyed (Could be provided by the Operator or retrived as explained before)
+	- Arg2 - Number of threads
+- Then it initiates an infinite loop where the counter is the Round "[+] Round %d\n" value - therefore once the Wiper is executed it would keep destroying the data infinitely!
+- Further based on the number of threads, it creates multiple threads in a loop which execute the main Wiper function.
+- **The BiBi-Windows wiper excludes the files with ".exe", ".dll" and ".sys" extension**
+
+![4](https://github.com/knight0x07/BiBi-Windows-Wiper-Analysis/assets/60843949/cd0ea284-eb37-413b-a245-78d81d759382)
+
+### Wiper Function Analysis
+
+Now lets understand how the BiBi-Windows Wiper destroys the data on the machine.
+
 
