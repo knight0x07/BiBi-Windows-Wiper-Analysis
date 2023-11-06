@@ -91,7 +91,7 @@ Thus,
 if random num = 0xC6D15D79
 mod_out = 0xC6D15D79 % 0x3E => 0x31
 offset = 0x31 × 0x2 = 0x62
-so the 62nd indexed value in the wide string becomes one of the character for the filename. **In this case "n"**
+so the 62nd indexed value in the wide string becomes one of the character for the filename. In this case the value is "n"
 
 ```
 The same routine is been executed 0xA (10) times and all the indexed values are appended together forming the random file name eg. **1wnRvB6teT** and then the extension **".BiBi" (Bibi is a nickname used for Israel's Prime Minister, Benjamin Netanyahu)** is added along the **round number at the end** in the following manner - **<rand_filename>.BiBi<roundno>**
